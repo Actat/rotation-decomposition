@@ -75,7 +75,8 @@ bool test(Eigen::Quaterniond r, Eigen::Vector3d e_q) {
 int main(void) {
   std::cout << "re_q == e_q" << std::endl;
   if (test(Eigen::Quaterniond(1, 0, 0, 0), Eigen::Vector3d(1, 0, 0)) &&
-      test(Eigen::Quaterniond(0, 1, 0, 0), Eigen::Vector3d(1, 0, 0))) {
+      test(Eigen::Quaterniond(0, 1, 0, 0), Eigen::Vector3d(1, 0, 0)) &&
+      test(Eigen::Quaterniond(0, 1, 0, 0), Eigen::Vector3d(-1, 0, 0))) {
     std::cout << "Good." << std::endl;
   } else {
     std::cout << "Something wrong." << std::endl;
@@ -85,6 +86,7 @@ int main(void) {
 
   std::cout << "re_q == -1 * e_q" << std::endl;
   if (test(Eigen::Quaterniond(0, 1, 0, 0), Eigen::Vector3d(0, 0, 1)) &&
+      test(Eigen::Quaterniond(0, 1, 0, 0), Eigen::Vector3d(0, 0, -1)) &&
       test(Eigen::Quaterniond(1 / std::sqrt(2), 1 / std::sqrt(2), 0, 0),
            Eigen::Vector3d(0, 0, 1))) {
     std::cout << "Good." << std::endl;
